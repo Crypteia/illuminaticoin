@@ -50,15 +50,15 @@ public:
         genesis.nVersion = 1;
         genesis.nTime    = 1393906860;
         genesis.nBits    = 0x1e0fffff;
-        genesis.nNonce   = 0;
+        genesis.nNonce   = 322585;
 
 
         //// debug print
         hashGenesisBlock = genesis.GetHash();
-        while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
-         if (++genesis.nNonce==0) break;
-         hashGenesisBlock = genesis.GetHash();
-        }
+        //while (hashGenesisBlock > bnProofOfWorkLimit.getuint256()){
+         //if (++genesis.nNonce==0) break;
+         //hashGenesisBlock = genesis.GetHash();
+        //}
 
         printf("GenesisBlock: %s\n", hashGenesisBlock.ToString().c_str());
         printf("MerkleRoot: %s\n", genesis.hashMerkleRoot.ToString().c_str());
@@ -66,10 +66,10 @@ public:
         genesis.print();
         
 
-        assert(hashGenesisBlock == uint256("0x"));
-        assert(genesis.hashMerkleRoot == uint256("0x"));
+        assert(hashGenesisBlock == uint256("0x000004feca60ea638190e30d19af6fa680f438a4c28eae94caaa3fbb703cded4"));
+        assert(genesis.hashMerkleRoot == uint256("0x888358e5d832b112713c763485f88fa4b581b71badc5d0b7ad7c78b9be19f931"));
 
-        vSeeds.push_back(CDNSSeedData("162.243.90.199:55904", "162.243.90.199:44444"));
+        vSeeds.push_back(CDNSSeedData("162.243.90.199:44444", "162.243.90.199:44444"));
 
         base58Prefixes[PUBKEY_ADDRESS] = 102;
         base58Prefixes[SCRIPT_ADDRESS] = 30;

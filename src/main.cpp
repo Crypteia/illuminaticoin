@@ -1283,11 +1283,11 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 {
     int64 nSubsidy = nStartSubsidy;
     
-    if(nHeight < 5000)//Istamining-protection
+    if(nHeight < 500)//Istamining-protection
     {
        nSubsidy = 0 * COIN;
     } 
-    if(4999 < nHeight < 10000)//Istamining-protection
+    if(499 < nHeight < 1000)//Istamining-protection
     {
        nSubsidy = 1 * COIN;
     }    
@@ -1489,7 +1489,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
                 if (pindexLast->nHeight+1 >= 50) { DiffMode = 2; }
         }
         else {
-                if (pindexLast->nHeight+1 >= 9999) { DiffMode = 2; }
+                if (pindexLast->nHeight+1 >= 999) { DiffMode = 2; }
         }
         
         if (DiffMode == 1) { return GetNextWorkRequired_V1(pindexLast, pblock); }
